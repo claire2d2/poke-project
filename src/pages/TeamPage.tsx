@@ -24,9 +24,9 @@ const TeamPage = () => {
     <div className="TeamPage flex h-full w-full items-stretch">
       <div
         // bar the expands when hovering on it
-        className="FindPokemon group w-1/6 bg-gray-200 hover:w-1/6 transition-all"
+        className="FindPokemon group w-5 bg-gray-200 hover:w-1/6 transition-all"
       >
-        <div className="group-hover:block transition-all">
+        <div className=" hidden group-hover:block transition-all">
           <FindPoke />
         </div>
       </div>
