@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import backendApi from "../../service/backendApi";
+import SmallSprite from "../TeamPage/SmallSprite";
 
 type pokeTeam = {
   name: string;
@@ -32,7 +33,14 @@ const ShowChosenTeam: React.FC<{ pokeTeamId: number }> = ({
 
   return (
     <div>
-      <h1>{team.name}</h1>
+      <h1>{team?.name}</h1>
+      <div className="flex items-center">
+        {team?.members.map((member: number) => {
+          return (
+            <SmallSprite pokeId={Number(member)} shinyState={team.isShiny} />
+          );
+        })}
+      </div>
     </div>
   );
 };
