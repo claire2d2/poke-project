@@ -4,9 +4,11 @@ import Instruction from "../components/PicturePage/Instruction";
 import backendApi from "../service/backendApi";
 
 import ShowChosenTeam from "../components/PicturePage/ShowChosenTeam";
+import FinalPicture from "../components/PicturePage/FinalPicture";
 
 import mistyImg from "../assets/Misty.png";
 import ashImg from "../assets/Ash_Ketchum.png";
+import backgroundImg from "../assets/backgrountest.jpg";
 
 type pokeTeam = {
   name: string;
@@ -43,6 +45,9 @@ const PictureTime = () => {
   const trainerHover = "hover:border-2 hover:border-blue-200 hover:scale-105";
   const trainerTitle = "my-1 font-bold font-xl";
 
+  if (!teamList) {
+    return <div>Nope!</div>;
+  }
   return (
     <div className="h-full flex flex-col">
       <h1 className="text-center text-5xl my-3 text-yellow-500 font-bold">
@@ -87,7 +92,23 @@ const PictureTime = () => {
         </Instruction>
       </div>
       <div className="w-full text-center"> Chheeeeeese!</div>
-      <button>Take a picture</button>
+      <div>
+        TEST
+        <FinalPicture
+          chosenTrainer={mistyImg}
+          pokeTeamId={chosenTeam}
+          chosenImg={backgroundImg}
+        />
+        {/* <div className="imageZone relative">
+          <img src={backgroundImg} alt="" />
+          <div className="absolute top-0 flex items-center">
+            {teamList[0].members.map((member: number) => {
+              return <SmallSprite pokeId={Number(member)} shinyState={true} />;
+            })}
+          </div> */}
+        {/* </div>  */}
+        <button>Take a picture</button>
+      </div>
     </div>
   );
 };
