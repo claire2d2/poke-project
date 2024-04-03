@@ -124,6 +124,7 @@ const Sidebar: React.FC<Props> = ({
     try {
       const { data } = await pokeApi.get<FilterData>("/type");
       const result = data.results;
+      result.sort((a, b) => a.name.localeCompare(b.name));
       setType(result);
     } catch (error) {
       console.log(error);
@@ -155,7 +156,7 @@ const Sidebar: React.FC<Props> = ({
     try {
       const { data } = await pokeApi.get<FilterData>("/pokemon-color");
       const result = data.results;
-      setColor(result); // Set color state
+      setColor(result);
     } catch (error) {
       console.log(error);
     }
@@ -206,33 +207,56 @@ const Sidebar: React.FC<Props> = ({
         </label>
       </div>
 
-      <div className="generation flex flex-col">
+      <div className="generation flex flex-col px-2">
         <button
-          className="font-bold text-left"
+          className="font-bold text-left flex justify-between"
           onClick={() => setIsOpenGeneration((prev) => !prev)}
         >
-          Generation
+          {isOpenGeneration ? (
+            <div>
+              <p>Generation ▲</p>
+            </div>
+          ) : (
+            <div>
+              <p>Generation ▼</p>
+            </div>
+          )}
         </button>
-
         {isOpenGeneration ? pokeGeneration : null}
       </div>
 
-      <div className="type flex flex-col">
+      <div className="type flex flex-col px-2">
         <button
-          className="font-bold text-left"
+          className="font-bold text-left  flex justify-between"
           onClick={() => setIsOpenType((prev) => !prev)}
         >
-          Type
+          {isOpenType ? (
+            <div>
+              <p>Type ▲</p>
+            </div>
+          ) : (
+            <div>
+              <p>Type ▼</p>
+            </div>
+          )}
         </button>
         {isOpenType ? pokeType : null}
       </div>
 
-      <div className="color flex flex-col">
+      <div className="color flex flex-col px-2">
         <button
-          className="font-bold text-left"
+          className="font-bold text-left flex justify-between"
           onClick={() => setIsOpenColor((prev) => !prev)}
         >
-          Color
+          {isOpenColor ? (
+            <div>
+              <p>Color ▲</p>
+            </div>
+          ) : (
+            <div>
+              <p>Color ▼</p>
+            </div>
+          )}
         </button>
         {isOpenColor ? pokeColor : null}
       </div>

@@ -33,7 +33,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     <select
       value={selectedValue}
       onChange={handleSelect}
-      className="bg-slate-200 hover:bg-slate-300 rounded-full py-2 text-center w-36 font-bold appearance-none cursor-pointer"
+      className="bg-slate-200 hover:bg-slate-300 rounded-full py-3 px-5 text-center font-bold appearance-none cursor-pointer font-press-start text-xs"
     >
       {options.map((option) => (
         <option

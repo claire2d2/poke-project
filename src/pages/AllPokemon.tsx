@@ -143,6 +143,8 @@ const AllPokemon = () => {
     displayedPoke = pokemon;
   }
 
+  let total = displayedPoke.length;
+
   return (
     <div className="flex">
       <Sidebar
@@ -193,7 +195,7 @@ const AllPokemon = () => {
           <div className="flex gap-2">
             <button
               onClick={filterByFavorites}
-              className="transition-all bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full sticky"
+              className="transition-all bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-4 rounded-full sticky  font-press-start text-xs"
             >
               {showFavorites ? "Show all" : "Show favorites"}
             </button>
@@ -214,12 +216,13 @@ const AllPokemon = () => {
                 <FaveButton
                   isFave={onePoke.favorite.length === 0 ? false : true}
                   currPoke={onePoke}
-                  heartSize={3}
+                  heartSize={2}
                 />
               </div>
             </div>
           ))}
         </div>
+        <p>Displayed Pokemon: {total}</p>
       </div>
     </div>
   );

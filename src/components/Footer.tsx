@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="flex justify-between px-5 py-3 border-t border-slate-900">
+    <footer className="flex justify-between px-5 py-3 border-t border-blue-900">
       <a
         href="https://github.com/claire2d2/poke-project"
         className="text-blue-900 hover:text-orange-600"
