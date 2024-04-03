@@ -25,8 +25,8 @@ const Sidebar: React.FC<Props> = ({
   setSelectedColors,
 }) => {
   const [generation, setGeneration] = useState<Array<Filter>>([]);
-  const [type, setType] = useState<Array<Filter>>([]); // Type filters
-  const [color, setColor] = useState<Array<Filter>>([]); // Color filters
+  const [type, setType] = useState<Array<Filter>>([]);
+  const [color, setColor] = useState<Array<Filter>>([]);
 
   // State for toggle filters
   const [isOpenGeneration, setIsOpenGeneration] = useState<Boolean>(false);
@@ -166,26 +166,21 @@ const Sidebar: React.FC<Props> = ({
     fetchColorFilters();
   }, []);
 
-  const pokeColor = color.map(
-    (
-      col,
-      index // Use color state here
-    ) => (
-      <div className="flex gap-2" key={index}>
-        <input
-          type="checkbox"
-          name={`color/${index + 1}`}
-          id={`color/${index + 1}`}
-          value={col.name}
-          onChange={handleColorFilter}
-          className="cursor-pointer"
-        />
-        <label htmlFor={`color/${index + 1}`}>
-          {col.name.slice(0, 1).toUpperCase() + col.name.slice(1)}
-        </label>
-      </div>
-    )
-  );
+  const pokeColor = color.map((col, index) => (
+    <div className="flex gap-2" key={index}>
+      <input
+        type="checkbox"
+        name={`color/${index + 1}`}
+        id={`color/${index + 1}`}
+        value={col.name}
+        onChange={handleColorFilter}
+        className="cursor-pointer"
+      />
+      <label htmlFor={`color/${index + 1}`}>
+        {col.name.slice(0, 1).toUpperCase() + col.name.slice(1)}
+      </label>
+    </div>
+  ));
 
   // Component
   return (
